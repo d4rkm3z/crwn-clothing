@@ -1,5 +1,5 @@
 import React from "react";
-import { MenuItem } from "../menu-item/menu-item.component";
+import MenuItem from "../menu-item/menu-item.component";
 
 import "./directory.styles.scss";
 
@@ -41,14 +41,8 @@ export default React.memo(function Directory() {
 
   return (
     <div className="directory-menu">
-      {sections.map(({ title, imageUrl, id, linkUrl, size }) => (
-        <MenuItem
-          key={id}
-          title={title}
-          imageUrl={imageUrl}
-          linkUrl={linkUrl}
-          size={size}
-        />
+      {sections.map(({ id, ...args }) => (
+        <MenuItem key={id} {...args} />
       ))}
     </div>
   );
